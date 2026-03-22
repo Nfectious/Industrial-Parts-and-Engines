@@ -3,70 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current Inventory and Prices</title>
+    <title>Inventory and Prices 2026</title>
     <style>
-        :root { --cat: #f1c40f; --jd: #27ae60; --gen: #2980b9; --dark: #2c3e50; --accent: #d35400; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 15px; margin: 0; color: #333; }
-        header { background: var(--dark); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
-        .nav-btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        :root { 
+            --cat: #f1c40f; 
+            --jd: #27ae60; 
+            --gen: #2980b9; 
+            --dark: #2c3e50; 
+            --accent: #d35400; 
+            --light-bg: #f4f7f6;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--light-bg); margin: 0; padding: 0; color: #333; }
+        header { background: var(--dark); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--accent); }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
         
-        .item-card { background: white; margin-bottom: 25px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 10px solid var(--dark); }
-        .item-header { padding: 15px; background: #f8f9fa; border-bottom: 1px solid #eee; }
+        .nav-box { text-align: center; margin-bottom: 30px; }
+        .btn-strategy { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; }
+
+        .category-header { font-size: 1.5rem; font-weight: bold; margin: 30px 0 15px 0; color: var(--dark); border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+
+        /* Card Styling */
+        .item-card { background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 8px solid var(--dark); }
+        .item-header { padding: 15px; background: #fdfdfd; border-bottom: 1px solid #eee; }
         .item-body { padding: 15px; }
         .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .price-box { background: #fff8e1; padding: 10px; border-radius: 6px; border: 1px solid #ffe082; text-align: center; }
-        .price-box.target { background: #e8f5e9; border-color: #a5d6a7; }
+        .price-box { background: #fff9c4; padding: 12px; border-radius: 6px; border: 1px solid #fbc02d; text-align: center; }
+        .price-box.target { background: #e8f5e9; border-color: #81c784; }
         
-        /* Categories */
-        .cat { border-top-color: var(--cat); }
-        .jd { border-top-color: var(--jd); }
-        .gen { border-top-color: var(--gen); }
-        
-        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; background: #eee; }
+        /* Category specific borders */
+        .cat { border-left-color: var(--cat); }
+        .jd { border-left-color: var(--jd); }
+        .gen { border-left-color: var(--gen); }
+
+        .tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; background: #eee; }
         .tag-high { background: #e74c3c; color: white; }
+        
+        ul.specs { padding-left: 20px; margin: 10px 0; font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>INVENTORY LIST</h1>
-        <p>March 2026 | Inventory</p>
-        <a href="strategy.html" class="nav-btn">VIEW SALES STRATEGY & PLAN</a>
-    </header>
+<header>
+    <h1>INVENTORY PRICE SHEET</h1>
+    <p>Market Data: March 2026</p>
+</header>
+
+<div class="container">
+
+    <div class="nav-box">
+        <a href="strategy.html" class="btn-strategy">→ VIEW SALES STRATEGY & CONTACTS</a>
+    </div>
+
+    <div class="category-header">CATERPILLAR IRON</div>
 
     <div class="item-card cat">
         <div class="item-header">
-            <span class="tag tag-high">New Surplus / High Value</span>
-            <h2>1. Caterpillar 108-3912 Cylinder Block</h2>
-            <p><strong>Specs:</strong> 3406C | Brand New Unused | Zero Hour</p>
+            <span class="tag tag-high">Top Value Item</span>
+            <h2>Caterpillar 108-3912 Cylinder Block</h2>
+            <p><strong>Condition:</strong> New Surplus / Zero-Hour / 3406C</p>
         </div>
         <div class="item-body">
             <div class="price-grid">
-                <div class="price-box"><strong>High Ask</strong><br><span style="color:#d35400; font-size: 1.2rem; font-weight: bold;">$12,500</span></div>
-                <div class="price-box target"><strong>Realistic</strong><br><span style="color:#27ae60; font-size: 1.2rem; font-weight: bold;">$10,500</span></div>
+                <div class="price-box"><strong>High Ask</strong><br><b>$12,500</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$10,500</b></div>
             </div>
-            <p style="margin-top: 15px;"><strong>Note:</strong> No core charge required. This is a massive selling point for rebuilders. Target Stowers Cat.</p>
+            <p><strong>Note:</strong> No core charge. This is pure profit iron. Sell to Stowers or high-end rebuilders.</p>
         </div>
     </div>
 
     <div class="item-card cat">
         <div class="item-header">
-            <h2>2. Caterpillar 3306 Complete Engine</h2>
-            <p><strong>Specs:</strong> Yellow Unit | Complete Take-out</p>
+            <h2>Caterpillar 3306 Complete Engine</h2>
+            <p><strong>Condition:</strong> Yellow Take-out | Inline-6 Diesel</p>
         </div>
         <div class="item-body">
             <div class="price-grid">
                 <div class="price-box"><strong>High Ask</strong><br><b>$14,500</b></div>
                 <div class="price-box target"><strong>Realistic</strong><br><b>$11,500</b></div>
             </div>
-            <p><strong>Core Value:</strong> $3,500 - $4,500</p>
+            <p><strong>Note:</strong> Huge demand for marine and industrial backup. Get a video of it cranking.</p>
+        </div>
+    </div>
+
+    <div class="category-header">JOHN DEERE DIESEL</div>
+
+    <div class="item-card jd">
+        <div class="item-header">
+            <span class="tag">Turbocharged x2</span>
+            <h2>John Deere 4039T Bundle (Yellow/White)</h2>
+            <p><strong>Serials:</strong> T541391 & T359044 | 4039TF001</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>Ask (Each)</strong><br><b>$6,800</b></div>
+                <div class="price-box target"><strong>Bundle Sale</strong><br><b>$11,000</b></div>
+            </div>
+            <p>Matched pair of turbo units. Perfect for chippers, tractors, or construction equipment.</p>
         </div>
     </div>
 
     <div class="item-card jd">
         <div class="item-header">
-            <h2>3. John Deere PE3029T Engine</h2>
-            <p><strong>Specs:</strong> Serial PE3029T099397 | Complete</p>
+            <h2>John Deere PE3029T Engine</h2>
+            <p><strong>Serial:</strong> PE3029T099397 | Complete Take-out</p>
         </div>
         <div class="item-body">
             <div class="price-grid">
@@ -76,24 +115,56 @@
         </div>
     </div>
 
+    <div class="category-header">GENERATORS & BACKUP POWER</div>
+
     <div class="item-card gen">
         <div class="item-header">
-            <h2>4. Onan / McGraw-Edison 50kW Generators</h2>
-            <p><strong>Specs:</strong> 4-6 Units Available | 50kW Diesel</p>
+            <span class="tag">High Capacity</span>
+            <h2>Onan 70DE-T Generator (70kW)</h2>
+            <p><strong>Specs:</strong> 70kW Standby | 120/208V | 3-Phase</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$13,500</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$11,500</b></div>
+            </div>
+            <p>Classic Studebaker-Onan build. Heavy iron for industrial backup.</p>
+        </div>
+    </div>
+
+    <div class="item-card gen">
+        <div class="item-header">
+            <h2>Onan TechStar 50 Generator (50kW)</h2>
+            <p><strong>Specs:</strong> 50kW | Cummins Diesel Powered</p>
         </div>
         <div class="item-body">
             <div class="price-grid">
                 <div class="price-box"><strong>High Ask</strong><br><b>$11,500</b></div>
                 <div class="price-box target"><strong>Realistic</strong><br><b>$9,000</b></div>
             </div>
-            <p><i>Price listed per individual unit. Bundle for discounts.</i></p>
+            <p>Radiator confirmed "Cummins Diesel." Very easy to sell for parts or backup.</p>
+        </div>
+    </div>
+
+    <div class="category-header">ADDITIONAL EQUIPMENT</div>
+
+    <div class="item-card">
+        <div class="item-header">
+            <h2>Allis-Chalmers 3500 Engine Block</h2>
+            <p><strong>Model:</strong> 3500 (Serial 3D-62906) | 6-Cylinder Diesel</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$2,200</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$1,600</b></div>
+            </div>
         </div>
     </div>
 
     <div class="item-card">
         <div class="item-header">
-            <h2>5. Miller Deltweld 451 Welder</h2>
-            <p><strong>Specs:</strong> DC Arc Welder | Clean Unit</p>
+            <h2>Miller Deltweld 451 Welder</h2>
+            <p><strong>Specs:</strong> Constant Voltage DC Arc Welder</p>
         </div>
         <div class="item-body">
             <div class="price-grid">
@@ -103,17 +174,19 @@
         </div>
     </div>
 
-    <div class="item-card" style="border-top-color: #7f8c8d;">
-        <div class="item-header"><h3>Additional Items</h3></div>
+    <div class="item-card" style="border-left-color: #7f8c8d;">
+        <div class="item-header"><h3>Small Items & Spares</h3></div>
         <div class="item-body">
-            <ul>
-                <li><strong>Military Gens (2x):</strong> Ask $7,500 | Real $5,500</li>
-                <li><strong>Hydraulic Cylinders (3x):</strong> Ask $2,000 | Set $5,800</li>
-                <li><strong>Allis-Chalmers Block:</strong> Ask $1,100 | Real $900</li>
-                <li><strong>Bosch Injection Pump:</strong> Ask $850 | Real $700</li>
+            <ul class="specs">
+                <li><strong>Military Gens (2x):</strong> High $7,500 | Realistic $5,500</li>
+                <li><strong>Hydraulic Cylinders (3x):</strong> High $2k (ea) | Set $5,800</li>
+                <li><strong>Bosch Injection Pump:</strong> High $850 | Realistic $700</li>
+                <li><strong>TechStar 50 Radiator:</strong> High $650 | Realistic $500</li>
             </ul>
         </div>
     </div>
+
+</div>
 
 </body>
 </html>
