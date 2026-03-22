@@ -3,164 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Selling/Price Sheet - March 2026</title>
+    <title>Current Inventory and Prices</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #d35400;
-            --light: #ecf0f1;
-            --success: #27ae60;
-        }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f4f7f6; }
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        header { background: var(--primary); color: white; padding: 2rem; border-radius: 8px 8px 0 0; text-align: center; }
-        h1, h2, h3 { margin-top: 0; }
-        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .prep-list { border-left: 5px solid var(--accent); }
-        .tier-high { color: var(--accent); font-weight: bold; }
-        .tier-real { color: var(--success); font-weight: bold; }
+        :root { --cat: #f1c40f; --jd: #27ae60; --gen: #2980b9; --dark: #2c3e50; --accent: #d35400; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 15px; margin: 0; color: #333; }
+        header { background: var(--dark); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
+        .nav-btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th { background: var(--primary); color: white; text-align: left; padding: 12px; position: sticky; top: 0; }
-        td { border: 1px solid #ddd; padding: 12px; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
+        .item-card { background: white; margin-bottom: 25px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 10px solid var(--dark); }
+        .item-header { padding: 15px; background: #f8f9fa; border-bottom: 1px solid #eee; }
+        .item-body { padding: 15px; }
+        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .price-box { background: #fff8e1; padding: 10px; border-radius: 6px; border: 1px solid #ffe082; text-align: center; }
+        .price-box.target { background: #e8f5e9; border-color: #a5d6a7; }
         
-        .listing-box { background: #34495e; color: white; padding: 15px; border-radius: 5px; font-style: italic; }
-        .action-plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .day-card { background: var(--light); padding: 15px; border-radius: 5px; border-top: 4px solid var(--primary); }
+        /* Categories */
+        .cat { border-top-color: var(--cat); }
+        .jd { border-top-color: var(--jd); }
+        .gen { border-top-color: var(--gen); }
         
-        @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr { display: block; }
-            th { position: static; }
-            tr { margin-bottom: 15px; }
-            td { text-align: right; padding-left: 50%; position: relative; }
-            td::before { content: attr(data-label); position: absolute; left: 10px; font-weight: bold; text-align: left; }
-        }
+        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; background: #eee; }
+        .tag-high { background: #e74c3c; color: white; }
     </style>
 </head>
 <body>
 
-<div class="container">
     <header>
-        <h1>INVENTORY SELLING SHEET</h1>
-        <p>March 2026 Market Update | Location: East TN, TN (Near I-75)</p>
+        <h1>INVENTORY LIST</h1>
+        <p>March 2026 | Inventory</p>
+        <a href="strategy.html" class="nav-btn">VIEW SALES STRATEGY & PLAN</a>
     </header>
 
-    <div class="card prep-list">
-        <h2>Quick Prep (1–2 Hours Total)</h2>
-        <ul>
-            <li><strong>Clean:</strong> Wipe dirt/grease off blocks and serial plates (Simple Green/Purple Power).</li>
-            <li><strong>Video:</strong> Record 10–20 second crank/turn-over videos for every engine/gen.</li>
-            <li><strong>Photos:</strong> 8–12 clear shots per item, including close-ups of serial plates.</li>
-            <li><strong>Logistic Prep:</strong> Drain all fluids. Pallet or crate everything.</li>
-            <li><strong>Key Note:</strong> Include "Rural eastern TN near I-75 – easy semi access. Demo videos available."</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Active Inventory & Pricing</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item Description</th>
-                    <th>High Ask</th>
-                    <th>Realistic Sale</th>
-                    <th>Core Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="Item"><strong>Cat 108-3912 Block (New Surplus)</strong></td>
-                    <td data-label="High Ask" class="tier-high">$12,500</td>
-                    <td data-label="Realistic" class="tier-real">$10,500</td>
-                    <td data-label="Core">N/A (No Core)</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>Cat 3306 Complete Engine</strong></td>
-                    <td data-label="High Ask" class="tier-high">$14,500</td>
-                    <td data-label="Realistic" class="tier-real">$11,500</td>
-                    <td data-label="Core">$3,500 - $4,500</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>JD PE3029T099397 Engine</strong></td>
-                    <td data-label="High Ask" class="tier-high">$5,500</td>
-                    <td data-label="Realistic" class="tier-real">$5,000</td>
-                    <td data-label="Core">$1,800 - $2,500</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>JD 4039 Series Engines</strong></td>
-                    <td data-label="High Ask" class="tier-high">$5,200</td>
-                    <td data-label="Realistic" class="tier-real">$4,500</td>
-                    <td data-label="Core">$1,400 - $2,000</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>Onan 50kW Generators (each)</strong></td>
-                    <td data-label="High Ask" class="tier-high">$11,500</td>
-                    <td data-label="Realistic" class="tier-real">$9,000</td>
-                    <td data-label="Core">$2,000+</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>2x Military Generators</strong></td>
-                    <td data-label="High Ask" class="tier-high">$7,500</td>
-                    <td data-label="Realistic" class="tier-real">$5,500</td>
-                    <td data-label="Core">High Demand</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>3 Crated Hydraulic Cylinders</strong></td>
-                    <td data-label="High Ask" class="tier-high">$5,800 (Set)</td>
-                    <td data-label="Realistic" class="tier-real">$4,800</td>
-                    <td data-label="Core">N/A</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>Miller Deltweld 451 Welder</strong></td>
-                    <td data-label="High Ask" class="tier-high">$1,600</td>
-                    <td data-label="Realistic" class="tier-real">$1,200</td>
-                    <td data-label="Core">N/A</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>Allis-Chalmers Block</strong></td>
-                    <td data-label="High Ask" class="tier-high">$1,100</td>
-                    <td data-label="Realistic" class="tier-real">$900</td>
-                    <td data-label="Core">N/A</td>
-                </tr>
-                <tr>
-                    <td data-label="Item"><strong>Bosch Injection Pump</strong></td>
-                    <td data-label="High Ask" class="tier-high">$850</td>
-                    <td data-label="Realistic" class="tier-real">$700</td>
-                    <td data-label="Core">N/A</td>
-                </tr>
-            </tbody>
-        </table>
-        <p><strong>Bundle Tip:</strong> Sell the 3 cylinders together or JD engines as a package for faster move.</p>
-    </div>
-
-    <div class="card">
-        <h2>Sales & Logistics Strategy</h2>
-        <h3>Best Places to List</h3>
-        <ol>
-            <li><strong>DieselEngineTrader.com:</strong> (Cat Block, 3306, Military Gens)</li>
-            <li><strong>MachineryTrader / TractorHouse:</strong> (John Deere units)</li>
-            <li><strong>Facebook Marketplace:</strong> (Local Knoxville/Chattanooga cash deals)</li>
-            <li><strong>Stowers Cat:</strong> Call 423-698-6943 for the 108-3912 Block.</li>
-        </ol>
-
-        <h3>Freight Plan</h3>
-        <p>Buyer arranges and pays freight. You provide loading. Advise buyers to use <strong>uShip.com</strong> or <strong>Estes Express</strong>.</p>
-        <div class="listing-box">
-            "Complete [Model] diesel engine – turns over strong (video available). Located rural eastern TN near I-75. Buyer freight or meet driver. Sold as-is. $X,XXX OBO."
+    <div class="item-card cat">
+        <div class="item-header">
+            <span class="tag tag-high">New Surplus / High Value</span>
+            <h2>1. Caterpillar 108-3912 Cylinder Block</h2>
+            <p><strong>Specs:</strong> 3406C | Brand New Unused | Zero Hour</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><span style="color:#d35400; font-size: 1.2rem; font-weight: bold;">$12,500</span></div>
+                <div class="price-box target"><strong>Realistic</strong><br><span style="color:#27ae60; font-size: 1.2rem; font-weight: bold;">$10,500</span></div>
+            </div>
+            <p style="margin-top: 15px;"><strong>Note:</strong> No core charge required. This is a massive selling point for rebuilders. Target Stowers Cat.</p>
         </div>
     </div>
 
-    <div class="card">
-        <h2>7-Day Action Plan</h2>
-        <div class="action-plan">
-            <div class="day-card"><strong>Day 1:</strong> Clean & Video Cat Block + 3306. Call Stowers Cat. List on FB.</div>
-            <div class="day-card"><strong>Day 2:</strong> List JD engines, Miller welder, and cylinders.</div>
-            <div class="day-card"><strong>Day 3:</strong> List remaining Gens, Allis block, and TechStar.</div>
-            <div class="day-card"><strong>Day 4-7:</strong> Manage leads, take deposits (Zelle), and schedule pickups.</div>
+    <div class="item-card cat">
+        <div class="item-header">
+            <h2>2. Caterpillar 3306 Complete Engine</h2>
+            <p><strong>Specs:</strong> Yellow Unit | Complete Take-out</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$14,500</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$11,500</b></div>
+            </div>
+            <p><strong>Core Value:</strong> $3,500 - $4,500</p>
         </div>
     </div>
-</div>
+
+    <div class="item-card jd">
+        <div class="item-header">
+            <h2>3. John Deere PE3029T Engine</h2>
+            <p><strong>Specs:</strong> Serial PE3029T099397 | Complete</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$5,500</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$5,000</b></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-card gen">
+        <div class="item-header">
+            <h2>4. Onan / McGraw-Edison 50kW Generators</h2>
+            <p><strong>Specs:</strong> 4-6 Units Available | 50kW Diesel</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$11,500</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$9,000</b></div>
+            </div>
+            <p><i>Price listed per individual unit. Bundle for discounts.</i></p>
+        </div>
+    </div>
+
+    <div class="item-card">
+        <div class="item-header">
+            <h2>5. Miller Deltweld 451 Welder</h2>
+            <p><strong>Specs:</strong> DC Arc Welder | Clean Unit</p>
+        </div>
+        <div class="item-body">
+            <div class="price-grid">
+                <div class="price-box"><strong>High Ask</strong><br><b>$1,600</b></div>
+                <div class="price-box target"><strong>Realistic</strong><br><b>$1,200</b></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-card" style="border-top-color: #7f8c8d;">
+        <div class="item-header"><h3>Additional Items</h3></div>
+        <div class="item-body">
+            <ul>
+                <li><strong>Military Gens (2x):</strong> Ask $7,500 | Real $5,500</li>
+                <li><strong>Hydraulic Cylinders (3x):</strong> Ask $2,000 | Set $5,800</li>
+                <li><strong>Allis-Chalmers Block:</strong> Ask $1,100 | Real $900</li>
+                <li><strong>Bosch Injection Pump:</strong> Ask $850 | Real $700</li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 </html>
